@@ -1,8 +1,6 @@
-
 import java.util.ArrayList;
 
 public class Library {
-
     private ArrayList<Book> books;
 
     public Library() {
@@ -13,22 +11,25 @@ public class Library {
         books.add(book);
     }
 
-    public void searchByTitle (String title){
+    public void searchByTitle(String title) {
         boolean found = false;
         for (Book book : books) {
-            if (book.getTitle().contains(title)) {
-                book.printBookInfo();  
+            // Directly access 'title' because it's public
+            if (book.title.toLowerCase().contains(title.toLowerCase())) {
+                book.printBookInfo();
                 found = true;
-        
-        if (!found) {
-                System.out.println("No books found with the title containing: " + title);
             }
-            
+        }
+        if (!found) {
+            System.out.println("No books found with the title containing: " + title);
+        }
     }
-    public static void main(String[] args) {  
-    
 
+    public void listAvailableBooks() {
+        for (Book book : books) {
+            if (book.isAvailable) {
+                book.printBookInfo();
+            }
+        }
     }
-
-}
 }
