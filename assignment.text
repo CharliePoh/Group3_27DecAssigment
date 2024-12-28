@@ -29,8 +29,8 @@ String isbn
 boolean isAvailable (true if the book is available for borrowing)
 Add a constructor to initialize these fields.
 Implement a method printBookInfo() that prints all the book details in the format:
-
 Title: [title], Author: [author], ISBN: [isbn], Available: [true/false]
+
 Task 3: Create a Library Class
 
 Create a class called Library that:
