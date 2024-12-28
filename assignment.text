@@ -12,14 +12,14 @@ Create a class called User with the following private fields:
 String name
 int age
 ArrayList<String> borrowedBooks (an empty list of books the user has borrowed)
-Provide getter and setter methods for name and age.
+Provide getter and setter methods for name and age./
 Add a method borrowBook(String bookTitle) that:
 Adds the book title to the borrowedBooks list.
 Add a method returnBook(String bookTitle) that:
 Removes the book from the list if the user has borrowed it, and prints a message indicating success or failure.
 Add a method printBorrowedBooks() that prints all books the user has borrowed.
-Part 2: Arrays and String Manipulation
 
+Part 2: Arrays and String Manipulation
 Task 2: Create a Book Class
 
 Create a class called Book with the following fields:

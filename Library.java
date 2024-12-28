@@ -7,10 +7,11 @@
 //Searches for books whose title contains the given string using the contains() method of the String class.
 //Prints matching book titles.
 //Part 3: Loops and Conditional Constructs
-
 import java.util.ArrayList;
 
 public class Library {
+
+    Book book = new Book();
 
     private ArrayList<Book> books;
 
@@ -26,7 +27,7 @@ public class Library {
         for (Book book : books) {
             
     }
-    public static void main(String[] args) {  
+    public static void main (String [] args) {
     
 
     }
