@@ -15,9 +15,6 @@ public class LMS {
         User user1 = new User("Alice", 25);
         User user2 = new User("Bob", 30);
 
-        library.registerUser(user1);
-        library.registerUser(user2);
-
         library.borrowBook(user1, "Book1");
         library.borrowBook(user2, "Book2");
 

@@ -1,39 +1,37 @@
 public class Book {
-    private String tittle;
+    private String title;
     private String author;
     private String isbn;
-    private boolean isAvailabale;
-    public Book(String tittle, String author, String isbn, boolean isAvailabale) {
-        this.tittle = tittle;
+    private boolean isAvailable;
+
+    public Book(String title, String author, String isbn, boolean isAvailable) {
+        this.title = title;
         this.author = author;
         this.isbn = isbn;
-        this.isAvailabale = isAvailabale;
+        this.isAvailable = isAvailable;
     }
-    public String getTittle() {
-        return tittle;
+
+    public String getTitle() {
+        return title;
     }
+
     public String getAuthor() {
         return author;
     }
+
     public String getIsbn() {
         return isbn;
     }
-    public boolean getIsAvailabale() {
-        return isAvailabale;
+
+    public boolean isAvailable() {
+        return isAvailable;
     }
-    public void setAuthor(String author) {
-        this.author = author;
+
+    public void setAvailable(boolean isAvailable) {
+        this.isAvailable = isAvailable;
     }
-    public void setIsbn(String isbn) {
-        this.isbn = isbn;
-    }
-    public void setIsAvailabale(boolean isAvailable) {
-        this.isAvailabale = true;
-    }
-    public void setTittle(String tittle){
-        this.tittle = tittle;
-    }
+
     public void printBookInfo() {
-        System.out.println("Title: " + tittle + " Author: " + author + " ISBN: " + isbn + "Available: " + isAvailabale);
+        System.out.println("Title: " + title + ", Author: " + author + ", ISBN: " + isbn + ", Available: " + isAvailable);
     }
 }
