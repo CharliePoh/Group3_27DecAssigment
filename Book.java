@@ -3,29 +3,11 @@ public class Book {
     private String author;
     private String isbn;
     private boolean isAvailabale;
-    public String getTittle() {
-        return tittle;
-    }
-    public String getAuthor() {
-        return author;
-    }
-    public String getIsbn() {
-        return isbn;
-    }
-    public boolean getIsAvailabale() {
-        return isAvailabale;
-    }
-    public void setAuthor(String author) {
-        this.author = author;
-    }
-    public void setIsbn(String isbn) {
-        this.isbn = isbn;
-    }
-    public void setIsAvailabale(boolean isAvailable) {
-        this.isAvailabale = true;
-    }
-    public void setTittle(String tittle){
+    public Book(String tittle, String author, String isbn, boolean isAvailabale) {
         this.tittle = tittle;
+        this.author = author;
+        this.isbn = isbn;
+        this.isAvailabale = isAvailabale;
     }
     public String getTittle() {
         return tittle;
