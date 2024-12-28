@@ -12,12 +12,18 @@ public class Library {
     }
 
     public void searchByTitle(String title) {
+        boolean found = false; 
         for (Book book : books) {
-            if (book.title.toLowerCase().contains(title.toLowerCase())) {
-                System.out.println(book.title);  
+            if (book.getTittle().toLowerCase().contains(title.toLowerCase())) {
+                book.printBookInfo();
+                found = true;
+            }
+            if (!found) {
+                System.out.println("No books found with the title containing: " + title);
             }
         }
     }
+
 }
 
 
