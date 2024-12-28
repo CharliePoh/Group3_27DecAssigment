@@ -36,7 +36,7 @@ public class User {
             return;
         }
         borrowedBooks.add(bookTitle);
-        LocalDate dueDate = LocalDate.now().plusDays(14); // 14 days from today
+        LocalDate dueDate = LocalDate.now().plusDays(14); 
         borrowedBooksDueDates.put(bookTitle, dueDate);
         System.out.println("Book borrowed: " + bookTitle + ". Due date: " + dueDate);
     }
