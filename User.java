@@ -6,12 +6,14 @@ import java.util.Map;
 public class User {
     private String name;
     private int age;
-    private ArrayList<String> borrowedBooks = new ArrayList<>();
-    private Map<String, LocalDate> borrowedBooksDueDates = new HashMap<>();
+    private ArrayList<String> borrowedBooks;
+    private Map<String, LocalDate> borrowedBooksDueDates;
 
     public User(String name, int age) {
         this.name = name;
         this.age = age;
+        this.borrowedBooks = new ArrayList<>();
+        this.borrowedBooksDueDates = new HashMap<>();
     }
 
     public String getName() {
@@ -31,60 +33,37 @@ public class User {
     }
 
     public void borrowBook(String bookTitle) {
-        if (borrowedBooks.contains(bookTitle)) {
-            System.out.println("You have already borrowed this book.");
-            return;
-        }
         borrowedBooks.add(bookTitle);
-        LocalDate dueDate = LocalDate.now().plusDays(14); 
-        borrowedBooksDueDates.put(bookTitle, dueDate);
-        System.out.println("Book borrowed: " + bookTitle + ". Due date: " + dueDate);
+        borrowedBooksDueDates.put(bookTitle, LocalDate.now().plusDays(14)); // Set due date 14 days from now
     }
 
     public void returnBook(String bookTitle) {
         if (borrowedBooks.remove(bookTitle)) {
             borrowedBooksDueDates.remove(bookTitle);
-            System.out.println("Book returned successfully: " + bookTitle);
+            System.out.println(name + " has returned " + bookTitle);
         } else {
-            System.out.println("You have not borrowed this book: " + bookTitle);
-        }
-    }
-
-    public void printBorrowedBooks() {
-        if (borrowedBooks.isEmpty()) {
-            System.out.println("No books borrowed.");
-        } else {
-            System.out.println("Borrowed books: ");
-            for (String book : borrowedBooks) {
-                System.out.println("- " + book);
-            }
+            System.out.println(name + " did not borrow " + bookTitle);
         }
     }
 
     public void checkDueDates() {
-        if (borrowedBooks.isEmpty()) {
-            System.out.println("No books to check due dates for.");
-        } else {
-            for (Map.Entry<String, LocalDate> entry : borrowedBooksDueDates.entrySet()) {
-                System.out.println("Book: " + entry.getKey() + ", Due Date: " + entry.getValue().toString());
+        for (String book : borrowedBooks) {
+            LocalDate dueDate = borrowedBooksDueDates.get(book);
+            System.out.println("Book: " + book + ", Due Date: " + dueDate);
+        }
+    }
+
+    public void checkOverdueBooks() {
+        for (String book : borrowedBooks) {
+            LocalDate dueDate = borrowedBooksDueDates.get(book);
+            long daysOverdue = LocalDate.now().until(dueDate).getDays();
+            if (daysOverdue < 0) {
+                System.out.println(book + " is overdue by " + Math.abs(daysOverdue) + " days.");
             }
         }
     }
 
-    
-    public void checkOverdueBooks() {
-        LocalDate today = LocalDate.now();
-        boolean hasOverdue = false;
-        for (Map.Entry<String, LocalDate> entry : borrowedBooksDueDates.entrySet()) {
-            LocalDate dueDate = entry.getValue();
-            if (dueDate.isBefore(today)) {
-                hasOverdue = true;
-                long overdueDays = today.toEpochDay() - dueDate.toEpochDay();
-                System.out.println("Overdue Book: " + entry.getKey() + ", Overdue by: " + overdueDays + " days.");
-            }
-        }
-        if (!hasOverdue) {
-            System.out.println("No overdue books.");
-        }
+    public ArrayList<String> getBorrowedBooks() {
+        return borrowedBooks;
     }
 }
